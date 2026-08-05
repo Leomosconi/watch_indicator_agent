@@ -14,9 +14,10 @@ class LLMClient:
         try:
             response = self.client.responses.create(
                 model='gpt-5.6-luna',
+                instructions='',
                 input=prompt,
             )
-            return response
+            return response.output_text
         except Exception as e:
             print('Erro ao obter resposta do LLM:', e)
 
